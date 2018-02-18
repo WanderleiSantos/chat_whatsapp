@@ -2,6 +2,10 @@
 *.apk
 *.ap_
 
+node_modules
+yarn.lock
+.DS_Store
+
 # Files for the ART/Dalvik VM
 *.dex
 
