@@ -1,16 +1,39 @@
 import React from 'react';
-import { View, Button, TextInput } from 'react-native';
+import { View, Button, TextInput, ImageBackground } from 'react-native';
+import { connect } from 'react-redux';
+import { Actions } from 'redux';
+import { modificaEmail, modificaSenha, modificaNome } from '../actions/AutenticacaoActions';
 
-export default props => (
-    <View style={{ flex: 1, padding: 10 }} >
+const imageFundo = require('../imgs/bg.png');
+
+const formCadastro = props => (
+    <ImageBackground style={{ flex: 1, padding: 10 }} source={imageFundo} >
         <View style={{ flex: 4, justifyContent: 'center' }} >
-            <TextInput style={{ fontSize: 20, height: 45 }} placeholder="Nome" />
-            <TextInput style={{ fontSize: 20, height: 45 }} placeholder="E-mail" />
-            <TextInput style={{ fontSize: 20, height: 45 }} placeholder="Senha" />
+            <TextInput value={props.nome} style={{ fontSize: 20, height: 45 }} placeholder="Nome" 
+                onChangeText={texto => props.modificaNome(texto)}
+            />
+            <TextInput value={props.email} style={{ fontSize: 20, height: 45 }} placeholder="E-mail" 
+                onChangeText={texto => props.modificaEmail(texto)}
+            />
+            <TextInput value={props.senha} style={{ fontSize: 20, height: 45 }} placeholder="Senha" 
+                secureTextEntry
+                onChangeText={texto => props.modificaSenha(texto)}
+            />
         </View>
 
         <View style={{ flex: 1 }} >
             <Button title="Cadastrar" onPress={() => false} />
         </View>
-    </View>
+    </ImageBackground>
 );
+
+const mapStateToProps = state => (
+    {
+        nome: state.AutenticacaoReducer.nome,
+        email: state.AutenticacaoReducer.email,
+        senha: state.AutenticacaoReducer.senha
+    }
+)
+
+export default connect(mapStateToProps, { modificaEmail, modificaSenha, modificaNome })(formCadastro);
+
