@@ -14,14 +14,18 @@ const formLogin = props => {
     >
         <View style={{ flex: 1, padding: 10 }}  >
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-                <Text style={{ fontSize: 25 }} > Chat WhatsApp </Text>
+                <Text style={{ fontSize: 25, color: '#FFF' }} > Chat WhatsApp </Text>
             </View>
 
             <View style={{ flex: 2 }} >
-                <TextInput value={props.email} style={{ fontSize: 20, height: 45 }} placeholder="E-mail" 
+                <TextInput value={props.email} style={{ fontSize: 20, height: 45 }} 
+                    placeholder="E-mail" 
+                    placeholderTextColor='#FFF'
                     onChangeText={texto => props.modificaEmail(texto)}
                 />
-                <TextInput value={props.senha} style={{ fontSize: 20, height: 45 }} placeholder="Senha" 
+                <TextInput value={props.senha} style={{ fontSize: 20, height: 45 }} 
+                    placeholder="Senha" 
+                    placeholderTextColor='#FFF'
                     secureTextEntry
                     onChangeText={texto => props.modificaSenha(texto)}                
                 />
@@ -31,7 +35,7 @@ const formLogin = props => {
                         underlayColor = {'white'}                    
                         onPress={() => Actions.formCadastro() }
                     >
-                        <Text style={{ fontSize: 14, fontWeight: 'bold' }}  > Ainda não tem cadastro? Cadastre-se </Text>
+                        <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFF' }}  > Ainda não tem cadastro? Cadastre-se </Text>
                     </TouchableHighlight>
                 </View>
             </View>
