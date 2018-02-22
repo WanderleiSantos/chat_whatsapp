@@ -12,14 +12,12 @@ import ReduxThunk from 'redux-thunk';
 
 import Routes from './src/Routes';
 import reducers from './src/reducers/index';
+import { KEY_ACESSO } from './key';
 
 export default class App extends Component {
 
-  componentWillMount(){
-    let config = {
-
-    }
-    firebase.initializeApp(config);    
+  componentWillMount() {    
+    firebase.initializeApp(KEY_ACESSO);    
   }
 
   render() {

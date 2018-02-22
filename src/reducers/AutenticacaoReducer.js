@@ -1,29 +1,52 @@
+import { MODIFICA_EMAIL, 
+    MODIFICA_SENHA, 
+    MODIFICA_NOME, 
+    CADASTRO_USUARIO_SUCESSO, 
+    CADASTRO_USUARIO_ERRO, 
+    LOGIN_USUARIO_SUCESSO, 
+    LOGIN_USUARIO_ERRO,
+    LOGIN_EM_ANDAMENTO,
+    CADASTRO_EM_ANDAMENTO 
+} from '../actions/types';
+
 const INITIAL_STATE = {
     nome: '',
     email: '',
     senha: '',
-    errorCadastro: ''
+    errorCadastro: '',
+    errorLogin: '',
+    loadingLogin: false,
+    loadingCadastro: false
 }
 
 export default (state = INITIAL_STATE, action) => {
     
     switch(action.type) {
-        case 'modifica_email':
+        case MODIFICA_EMAIL:
             return { ...state, email: action.payload };
             break;
-        case 'modifica_senha':
+        case MODIFICA_SENHA:
             return { ...state, senha: action.payload };
             break;
-        case 'modifica_nome':
+        case MODIFICA_NOME:
             return { ...state, nome: action.payload };
             break;
-        case 'cadastro_usuario_erro':
-            return { ...state, errorCadastro: action.payload };
+        case CADASTRO_USUARIO_ERRO:
+            return { ...state, errorCadastro: action.payload, loadingCadastro: false };
             break;
-        case 'cadastro_usuario_sucesso':
+        case CADASTRO_USUARIO_SUCESSO:
             return { ...state, nome: '', senha: '' };
             break;
+        case LOGIN_USUARIO_ERRO:
+            return { ...state, errorLogin: action.payload, loadingLogin: false };
+            break;
+        case LOGIN_EM_ANDAMENTO:
+            return { ...state, loadingLogin: true };
+            break;
+        case CADASTRO_EM_ANDAMENTO:
+            return { ...state, loadingCadastro: true };
+            break;            
+        default:
+            return state;
     }
-
-    return state;
 }
