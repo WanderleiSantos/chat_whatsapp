@@ -3,8 +3,10 @@ import { View, Text, StatusBar, TouchableHighlight } from 'react-native';
 import { TabBar } from 'react-native-tab-view';
 import { Icon } from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { habilitaContatoInclusao } from '../actions/AppActions';
 
-export default props => (
+const TabBarMenu = props => (
     <View style={{ backgroundColor: '#115E54', elevation: 4, marginBottom: 6 }} >
         <StatusBar backgroundColor='#114D44'/>   
 
@@ -18,7 +20,7 @@ export default props => (
                     <TouchableHighlight
                         activeOpacity={ 0.3 }
                         underlayColor={ '#115E54' }
-                        onPress={() => Actions.addContato()}
+                        onPress={() =>  { Actions.addContato(); props.habilitaContatoInclusao(); }}
                     >
                         <Icon name="md-person-add" style={{ paddingLeft: 10, color: 'white' }} />
                     </TouchableHighlight>
@@ -32,3 +34,5 @@ export default props => (
         <TabBar {...props} style={{ backgroundColor: '#115E54', elevation: 0 }} />
     </View>
 );
+
+export default connect(null, { habilitaContatoInclusao })(TabBarMenu);
