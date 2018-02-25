@@ -45,7 +45,10 @@ export default (state = INITIAL_STATE, action) => {
             break;
         case CADASTRO_EM_ANDAMENTO:
             return { ...state, loadingCadastro: true };
-            break;            
+            break;   
+        case LOGIN_USUARIO_SUCESSO:
+            return { ...state, ...INITIAL_STATE };
+            break;                       
         default:
             return state;
     }

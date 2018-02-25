@@ -21,7 +21,7 @@ class AdicionarContato extends Component {
                     <View style={{ flex: 1 }} >
                         <Button 
                             title="Adicionar" 
-                            color='#115E54' 
+                            color='#42a5f5' 
                             onPress={() => this.props.adicionaContato(this.props.adiciona_contato_email)} 
                         />
                         
@@ -38,7 +38,7 @@ class AdicionarContato extends Component {
         return (
             <View style={{ justifyContent: 'center', alignItems: 'center' }} >
                 <Text 
-                    style={{ fontSize: 20, color: '#115E42', fontWeight: 'bold' }} 
+                    style={{ fontSize: 20, color: '#0077c2', fontWeight: 'bold' }} 
                 > 
                     Cadastro realizado com sucesso! 
                 </Text>

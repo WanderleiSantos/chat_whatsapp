@@ -9,7 +9,7 @@ import AdicionarContato from './components/AdicionarContato';
 import Conversa from './components/Conversa'
 
 export default props => (
-    <Router navigationBarStyle={{ backgroundColor: '#115E54' }} titleStyle={{ color: '#FFF' }} >
+    <Router navigationBarStyle={{ backgroundColor: '#42a5f5' }} titleStyle={{ color: '#FFF' }} >
         <Scene key='app'>
             <Scene key='formLogin' component={FormLogin} title="Login" hideNavBar={ true } />
             <Scene key='formCadastro' component={FormCadastro} title="Cadastro" hideNavBar={ false } />

@@ -9,7 +9,7 @@ import {
     cadastraUsuario 
 } from '../actions/AutenticacaoActions';
 
-const imageFundo = require('../imgs/bg.png');
+const imageFundo = require('../imgs/bg3.jpg');
 
 class formCadastro extends Component {
 
@@ -27,7 +27,7 @@ class formCadastro extends Component {
         }
         
         return (
-            <Button color='#115E54' title="Cadastrar" onPress={() => this._cadastraUsuario()} />
+            <Button color='#42a5f5' title="Cadastrar" onPress={() => this._cadastraUsuario()} />
         );
     }
 

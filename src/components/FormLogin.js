@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { modificaEmail, modificaSenha, autenticarUsuario } from '../actions/AutenticacaoActions';
 
-const imageFundo = require('../imgs/bg.png');
+const imageFundo = require('../imgs/bg3.jpg');
 
 class formLogin extends Component {   
     
@@ -21,15 +21,14 @@ class formLogin extends Component {
         }
 
         return (
-            <Button color='#115E54' title="Acessar" onPress={() => this._autenticarUsuario()} />            
+            <Button color='#42a5f5' title="Acessar" onPress={() => this._autenticarUsuario()} />            
         );
     }
 
     render(){
         return (
             <ImageBackground 
-                style={{ flex: 1 }}
-                source={imageFundo}
+                style={{ flex: 1 }} source={imageFundo}
             >
                 <View style={{ flex: 1, padding: 10 }}  >
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
