@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, TextInput, ImageBackground, Text, ActivityIndicator } from 'react-native';
+import { View, Button, TextInput, Image, Text, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'redux';
 import { 
@@ -9,7 +9,7 @@ import {
     cadastraUsuario 
 } from '../actions/AutenticacaoActions';
 
-const imageFundo = require('../imgs/bg3.jpg');
+const imageLogo = require('../imgs/logoblue.png');
 
 class formCadastro extends Component {
 
@@ -33,27 +33,31 @@ class formCadastro extends Component {
 
     render() {
         return (
-            <ImageBackground style={{ flex: 1, padding: 10 }} source={imageFundo} >
+            <View style={{ flex: 1, padding: 10, backgroundColor: '#FFF' }} >
                 <View style={{ flex: 4, justifyContent: 'center' }} >
+                    <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 30 }}  >
+                        <Image source={require=(imageLogo)} style={{ height: 115, width: 115 }} />                        
+                    </View>
+
                     <TextInput 
                         style={{ fontSize: 20, height: 45 }} 
                         value={this.props.nome} 
                         placeholder="Nome" 
-                        placeholderTextColor='#FFF'
+                        placeholderTextColor='#bdbdbd'
                         onChangeText={texto => this.props.modificaNome(texto)}
                     />
                     <TextInput 
                         style={{ fontSize: 20, height: 45 }} 
                         value={this.props.email} 
                         placeholder="E-mail" 
-                        placeholderTextColor='#FFF'
+                        placeholderTextColor='#bdbdbd'
                         onChangeText={texto => this.props.modificaEmail(texto)}
                     />
                     <TextInput 
                         style={{ fontSize: 20, height: 45 }} 
                         value={this.props.senha}
                         placeholder="Senha" 
-                        placeholderTextColor='#FFF'
+                        placeholderTextColor='#bdbdbd'
                         secureTextEntry
                         onChangeText={texto => this.props.modificaSenha(texto)}
                     />
@@ -65,7 +69,7 @@ class formCadastro extends Component {
                 <View style={{ flex: 1 }} >
                     {this.renderBtnCadastrar()}
                 </View>
-            </ImageBackground>
+            </View>
         );
     }
 };

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button, TouchableHighlight, ImageBackground, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, Button, TouchableHighlight, Image, ActivityIndicator } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { modificaEmail, modificaSenha, autenticarUsuario } from '../actions/AutenticacaoActions';
 
-const imageFundo = require('../imgs/bg3.jpg');
+const imageLogo = require('../imgs/logoblue.png');
 
 class formLogin extends Component {   
     
@@ -27,22 +27,22 @@ class formLogin extends Component {
 
     render(){
         return (
-            <ImageBackground 
-                style={{ flex: 1 }} source={imageFundo}
+            <View 
+                style={{ flex: 1, backgroundColor: '#FFF' }} 
             >
-                <View style={{ flex: 1, padding: 10 }}  >
+                <View style={{ flex: 1, padding: 10, marginTop: 60 }}  >
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-                        <Text style={{ fontSize: 25, color: '#FFF' }} > Chat WhatsApp </Text>
+                        <Image source={require=(imageLogo)} style={{ height: 115, width: 115 }} />                        
                     </View>        
-                    <View style={{ flex: 2 }} >
+                    <View style={{ flex: 2, marginTop: 30 }} >
                         <TextInput value={this.props.email} style={{ fontSize: 20, height: 45 }} 
                             placeholder="E-mail" 
-                            placeholderTextColor='#FFF'
+                            placeholderTextColor='#bdbdbd'
                             onChangeText={texto => this.props.modificaEmail(texto)}
                         />
                         <TextInput value={this.props.senha} style={{ fontSize: 20, height: 45 }} 
                             placeholder="Senha" 
-                            placeholderTextColor='#FFF'
+                            placeholderTextColor='#bdbdbd'
                             secureTextEntry
                             onChangeText={texto => this.props.modificaSenha(texto)}                
                         />
@@ -55,7 +55,7 @@ class formLogin extends Component {
                                 underlayColor = {'white'}                    
                                 onPress={() => Actions.formCadastro() }
                             >
-                                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#FFF' }}  > Ainda não tem cadastro? Cadastre-se </Text>
+                                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#8d8d8d' }}  > Ainda não tem cadastro? Cadastre-se </Text>
                             </TouchableHighlight>
                         </View>
                     </View>
@@ -65,7 +65,7 @@ class formLogin extends Component {
                     </View>
                     
                 </View>
-            </ImageBackground>
+            </View>
         );
     }    
 };
